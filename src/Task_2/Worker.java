@@ -1,32 +1,18 @@
 package Task_2;
 
 public class Worker {
-    private OnTaskDoneListener callback;
+    private final OnTaskDoneListener callback;
+    private final OnTaskErrorListener errorCallback;
 
-    private OnTaskErrorListener errorCallback;
-
-    public Worker(OnTaskErrorListener errorCallback) {
-        this.errorCallback = errorCallback;
-    }
-
-    public Worker(OnTaskDoneListener callback) {
+    public Worker(OnTaskDoneListener callback, OnTaskErrorListener callback2) {
         this.callback = callback;
-    }
-
-    @FunctionalInterface
-    public interface OnTaskDoneListener {
-        void oneDone(String result);
-    }
-
-    @FunctionalInterface
-   public interface OnTaskErrorListener{
-        void onError (String result);
+        this.errorCallback = callback2;
     }
 
     public void start() {
         for (int i = 0; i < 100; i++) {
-            if (i !=33) callback.oneDone("Task" + i + " is done");
-            errorCallback.onError("33 task not done");
+            if (i!=33) callback.onDone("Task " + i + " is done");
+            else errorCallback.onError("Task " + i + " is error");
         }
     }
 }
