@@ -12,13 +12,7 @@ public class Main {
         calc.println.accept(b);
         calc.println.accept(c);
 
-        // Код не работает, ошибка на ноль делить нельзя
-        // можно выкинуть ошибку BinaryOperator<Integer> devide = (x, y) -> {
-        //        if (y != 0) return x/y;
-        //        else throw new ArithmeticException("На ноль делить нельзя");
-        //    };
-        // или оставить в качестве ответа число x
-        //BinaryOperator<Integer> devide = (x, y) -> y != 0 ? x/ y : x;
+
 
     }
 }
